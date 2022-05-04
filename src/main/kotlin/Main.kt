@@ -52,7 +52,7 @@ fun tarifTransver (
 fun main() {
     tarifTransver(amount = 1_000_00)
     tarifTransver(amount = 16_000_00)
-    tarifTransver(amount = 16_000_00, amountMonth = 25_000_00)
+    tarifTransver(amount = 14_000_00, amountMonth = 27_000_00)
     tarifTransver(cardType = "Mastercard", amount = 1000_00, amountMonth = 73_000_00)
     tarifTransver(cardType = "Maestro", amount = 1000_00, amountMonth = 75_000_00)
     tarifTransver(cardType = "Mir", amount = 10000_00)
