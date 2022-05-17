@@ -1,4 +1,4 @@
-fun VkPay (amountMonth: Int, amount: Int): Int {
+fun vkPay (amountMonth: Int, amount: Int): Int {
     val limitMonth = 40_000_00
     val limitNow = 15_000_00
     return if (amountMonth + amount > limitMonth) -1
@@ -6,7 +6,7 @@ fun VkPay (amountMonth: Int, amount: Int): Int {
     else 0
 }
 
-fun VisaMir(amountMonth: Int, amount: Int): Int {
+fun visaMir(amountMonth: Int, amount: Int): Int {
     val limitMonth = 600_000_00
     val limitNow = 150_000_00
     val tarifMM = 0.0075
@@ -19,7 +19,7 @@ fun VisaMir(amountMonth: Int, amount: Int): Int {
     }
 }
 
-fun MasterMaestro(amountMonth: Int, amount: Int): Int {
+fun masterMaestro(amountMonth: Int, amount: Int): Int {
     val tarif = 0.006
     val limitMonth = 75_000_00
     return if (limitMonth > amountMonth + amount) 0
@@ -32,11 +32,11 @@ fun tarifTransver (
     amount: Int
 ): Int {
     val tarif = when (cardType) {
-        "VkPay" -> VkPay(amountMonth, amount)
-        "Mastercard" -> MasterMaestro(amountMonth, amount)
-        "Maestro" -> MasterMaestro(amountMonth, amount)
-        "Visa" -> VisaMir(amountMonth, amount)
-        else -> VisaMir(amountMonth, amount)
+        "VkPay" -> vkPay(amountMonth, amount)
+        "Mastercard" -> masterMaestro(amountMonth, amount)
+        "Maestro" -> masterMaestro(amountMonth, amount)
+        "Visa" -> visaMir(amountMonth, amount)
+        else -> visaMir(amountMonth, amount)
     }
     print ("Карта $cardType ")
     print ("Перевод ${amount / 100} руб. ")
